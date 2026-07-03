@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+html_content = """<!DOCTYPE html>
 <html lang="en" data-theme="dark">
 <head>
   <meta charset="utf-8" />
@@ -6,12 +6,15 @@
 
   <title>Cartesian Ontology — Ukubona LLC</title>
 
+  <!-- Icons -->
   <link rel="icon" href="https://abikesa.github.io/favicon/assets/favicon-light.ico" />
   <link rel="icon" href="https://abikesa.github.io/favicon/assets/favicon-dark.ico" media="(prefers-color-scheme: dark)" />
 
+  <!-- Logo preloads -->
   <link rel="preload" href="https://abikesa.github.io/logos/assets/ukubona-light.png" as="image" />
   <link rel="preload" href="https://abikesa.github.io/logos/assets/ukubona-dark.png" as="image" />
 
+  <!-- Typography -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300;1,9..40,400&family=DM+Mono:wght@400;500&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet" />
@@ -189,6 +192,35 @@
       margin: 1.5rem 0; color: var(--text2); font-size: 0.95rem; font-style: italic; line-height: 1.65;
     }
 
+    /* ── VIDEO EMBED ───────────────────────────────────────── */
+    .video-wrap {
+      position: relative;
+      width: 100%;
+      padding-bottom: 56.25%;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      background: #000;
+      margin: 1.25rem 0;
+      border: 1px solid var(--border);
+    }
+    .video-wrap iframe {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      border: none;
+    }
+    .video-caption {
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      letter-spacing: 0.06em;
+      color: var(--text2);
+      margin-top: -0.5rem;
+      margin-bottom: 1.25rem;
+    }
+    .video-caption span {
+      color: var(--accent);
+    }
+
     /* ── DEBATE THREAD ─────────────────────────────────────── */
     .debate { margin: 1.5rem 0; }
     .debate-turn {
@@ -270,6 +302,7 @@
 
 <body>
 
+  <!-- ── HEADER ── -->
   <div class="site-header">
     <div class="header-inner">
       <div class="logo-wrap" aria-hidden="true">
@@ -286,6 +319,7 @@
     </div>
   </div>
 
+  <!-- ── NAV ── -->
   <div class="nav-strip">
     <div class="nav-inner" id="tab-nav">
       <button class="tab-btn active" data-tab="discovery">1. Discovery</button>
@@ -295,14 +329,30 @@
     </div>
   </div>
 
+  <!-- ── MAIN ── -->
   <main>
     <div class="outer">
 
+      <!-- ═══════════════════════════════════════════ TAB 1 ═══ -->
       <section class="tab-panel active" id="tab-discovery">
         <div class="section">
           <p class="eyebrow">Phase I · The Lexical Bridge</p>
           <h2 class="display">Discovering Cartesian limits</h2>
           <p class="lede">It began with an observation on Brain-Computer Interfaces (BCIs). The assumption that inserting a physical probe into a 3D coordinate space maps perfectly to cognition reflects a myopic view of intelligence. Intelligence is not localized; it is a hyper-dimensional superposition.</p>
+        </div>
+
+        <div class="section">
+          <h2 class="section-head">The Catalyst</h2>
+          <div class="video-wrap">
+            <!-- 1:09:22 = 4162 seconds -->
+            <iframe
+              src="https://www.youtube.com/embed/5w4mYeWGVc8?start=4162&rel=0"
+              title="What the West Gets Wrong About China | Alice Han & Trevor Noah"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            ></iframe>
+          </div>
+          <p class="video-caption">The trigger: <span>1:09:22</span> · Chinese BCI engineering and the Cartesian assumption of localizing motor/cognitive function.</p>
         </div>
 
         <div class="section">
@@ -360,6 +410,7 @@
         </div>
       </section>
 
+      <!-- ═══════════════════════════════════════════ TAB 2 ═══ -->
       <section class="tab-panel" id="tab-ontology">
         <div class="section">
           <p class="eyebrow">Phase II · The GPT Translation</p>
@@ -422,6 +473,7 @@
         </div>
       </section>
 
+      <!-- ═══════════════════════════════════════════ TAB 3 ═══ -->
       <section class="tab-panel" id="tab-interrogation">
         <div class="section">
           <p class="eyebrow">Phase III · Claude's Investor Critique</p>
@@ -497,6 +549,7 @@
         </div>
       </section>
 
+      <!-- ═══════════════════════════════════════════ TAB 4 ═══ -->
       <section class="tab-panel" id="tab-verdict">
         <div class="section">
           <p class="eyebrow">Conclusion</p>
@@ -537,8 +590,10 @@
 
       </section>
 
-    </div></main>
+    </div><!-- /.outer -->
+  </main>
 
+  <!-- ── FOOTER ── -->
   <footer>
     <div class="outer">
       <div class="footer-text">Ukubona LLC · Epistemological Archive</div>
@@ -546,6 +601,7 @@
     </div>
   </footer>
 
+  <!-- ── SCRIPTS ── -->
   <script>
     function toggleTheme() {
       const html = document.documentElement;
@@ -574,4 +630,8 @@
   </script>
 
 </body>
-</html> 
+</html>"""
+
+with open('/mnt/data/cartesian_ontology_ukubona.html', 'w', encoding='utf-8') as f:
+    f.write(html_content)
+print("File updated successfully: [file-tag: cartesian_ontology_ukubona.html]")
